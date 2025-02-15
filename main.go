@@ -77,6 +77,7 @@ func update() {
 		}
 
 		price = root.Pairs[0].PriceUSD
+		log.Println(price)
 
 		resp.Body.Close()
 		time.Sleep(30 * time.Second)
