@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"time"
 
+	"price/data"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -25,6 +27,7 @@ func run() {
 
 	router.GET("/", Handle)
 
+	fmt.Println("Run!")
 	if err := router.Run(":88"); err != nil {
 		log.Println("error running web:", err)
 	}
@@ -66,7 +69,7 @@ func update() {
 			return
 		}
 
-		var root Root
+		var root data.Root
 		err = json.Unmarshal(body, &root)
 		if err != nil {
 			fmt.Println("Error json:", err)
